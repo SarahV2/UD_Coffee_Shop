@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/SarahV2/UD_Coffee_Shop#readme",
   "dependencies": {
+    "config": "^3.3.3",
     "express": "^4.17.1",
+    "express-validator": "^6.9.2",
     "mongoose": "^5.11.13"
   }
 }
