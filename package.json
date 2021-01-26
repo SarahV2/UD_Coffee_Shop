@@ -1,0 +1,23 @@
+{
+  "name": "udacity_coffee_shop",
+  "version": "1.0.0",
+  "description": "rebuild udacity_coffee_shop using express and node js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SarahV2/UD_Coffee_Shop.git"
+  },
+  "author": "SarahV2",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SarahV2/UD_Coffee_Shop/issues"
+  },
+  "homepage": "https://github.com/SarahV2/UD_Coffee_Shop#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.13"
+  }
+}
