@@ -24,7 +24,10 @@ router.get('/', async (req, res) => {
 
 router.post(
   '/',
-  [check('title', 'title is required').not().isEmpty()],
+  [
+    check('title', 'title is required').not().isEmpty(),
+    check('recipe', "drink's recipe is required").not().isEmpty(),
+  ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -69,9 +72,8 @@ router.patch(
       if (!drink) {
         return res.status(404).json({ message: 'Not found' });
       }
-      drink.title=req.body.title;
-      drink.recipe=req.body.recipe;
-
+      drink.title = req.body.title;
+      drink.recipe = req.body.recipe;
 
       const updated_drink = await drink.save();
       return res.json(updated_drink);
@@ -81,5 +83,22 @@ router.patch(
     }
   }
 );
+
+// @route   DELETE api/drinks/:id
+// @desc    Delete a drink
+// @access  Private (public as of now)
+
+router.delete('/:drink_id', async (req, res) => {
+  try {
+    const drink = await Drink.findByIdAndDelete(req.params.drink_id);
+    if (!drink) {
+      return res.status(404).json({ message: 'Not found' });
+    }
+    return res.json({message:'Drink data was successfully removed!'})
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Server Error' });
+  }
+});
 
 module.exports = router;
